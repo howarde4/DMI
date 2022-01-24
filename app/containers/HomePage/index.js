@@ -6,13 +6,14 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import TodoList from '../TodoList/index';
+import H1 from '../../components/h1';
 
 export default function HomePage() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <main>
+      <H1>To Do List!</H1>
+      <TodoList />
+    </main>
   );
 }
