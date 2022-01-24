@@ -1,15 +1,15 @@
-const {Client} = require('pg');
+const { Client } = require('pg');
 
 let DB_URI;
 
 if (process.env.NODE_ENV === 'test') {
-    DB_URI = 'postgresql:///todosdb_test';
+  DB_URI = 'postgresql:///todosdb_test';
 } else {
-    DB_URI = 'postgresql:///todosdb';
+  DB_URI = 'postgresql:///todosdb';
 }
 
-let db = new Client({
-    connectionString: DB_URI
+const db = new Client({
+  connectionString: DB_URI,
 });
 
 db.connect();
