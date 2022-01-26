@@ -5,11 +5,13 @@
  */
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useInjectSaga } from '../../utils/injectSaga';
 import { addTodo } from './actions';
-import H1 from '../../components/h1';
-import TodoForm from './todoForm';
+import H1 from '../../components/H1';
+import messages from './messsages';
+import TodoForm from '../Form/index';
 import saga from './saga';
 
 const key = 'addTodoKey';
@@ -25,7 +27,9 @@ export default function NewTodo() {
 
   return (
     <main>
-      <H1>New to do!</H1>
+      <H1>
+        <FormattedMessage {...messages.newTodo} />
+      </H1>
       <TodoForm save={add} />
     </main>
   );

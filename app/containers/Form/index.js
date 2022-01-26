@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import { useFormik } from 'formik';
-import Button from '../../components/button';
+import Button from '../../components/Button/index';
+import messages from './messages';
 
 const validate = values => {
   const errors = {};
@@ -22,11 +25,14 @@ const TodoForm = ({ save }) => {
     },
   });
 
+  const saveBtn = <FormattedMessage {...messages.save} />;
+  const backBtn = <FormattedMessage {...messages.back} />;
+
   return (
     <form onSubmit={formik.handleSubmit} className="form-control w-50">
       <div className="mb-3">
         <label htmlFor="task" className="form-label">
-          Task:
+          <FormattedMessage {...messages.label} />
         </label>
         <input
           onChange={formik.handleChange}
@@ -41,14 +47,16 @@ const TodoForm = ({ save }) => {
           </div>
         ) : null}
       </div>
-      <Button primary type="submit">
-        Save
-      </Button>
+      <Button btnType="submit" msg={saveBtn} primary />
       <Link to="/">
-        <Button type="button">Back</Button>
+        <Button btnType="button" msg={backBtn} />
       </Link>
     </form>
   );
+};
+
+TodoForm.propTypes = {
+  save: PropTypes.func,
 };
 
 export default TodoForm;

@@ -11,7 +11,6 @@ export const initialState = {
   error: null,
 };
 
-/* eslint-disable default-case, no-param-reassign */
 const addTodoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:

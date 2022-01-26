@@ -8,28 +8,19 @@
  */
 
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NewTodo from '../NewTodo/index';
-import Button from '../../components/button';
+import Header from '../../components/Header';
 
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
     <div>
-      <header>
-        <nav className="nav">
-          <NavLink className="nav-link" exact to="/">
-            <Button>To Dos</Button>
-          </NavLink>
-          <NavLink className="nav-link" exact to="/new">
-            <Button primary>Add a To Do</Button>
-          </NavLink>
-        </nav>
-      </header>
+      <Header />
 
       <Switch>
         <Route exact path="/new" component={NewTodo} />

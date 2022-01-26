@@ -6,8 +6,8 @@
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { useInjectSaga } from 'utils/injectSaga';
+import ReposList from '../../components/Repos/ReposList';
 import { getTodos } from './actions';
 import saga from './saga';
 
@@ -17,6 +17,7 @@ export default function TodoList() {
   const dispatch = useDispatch();
   const todos = useSelector(state => state.todoListReducer.todos);
   const isLoading = useSelector(state => state.todoListReducer.isLoading);
+  const errors = useSelector(state => state.todoListReducer.error);
 
   useEffect(() => {
     function fetchTodo() {
@@ -27,21 +28,5 @@ export default function TodoList() {
     }
   }, [dispatch, isLoading]);
 
-  if (isLoading) return <b>Loading...</b>;
-
-  return (
-    <div className="card" style={{ width: '22rem', margin: '2rem' }}>
-      <div className="card-body">
-        <h5 className="card-text">
-          {todos &&
-            todos.length > 0 &&
-            todos.map(todo => (
-              <ul key={todo.id}>
-                <li>{todo.todo}</li>
-              </ul>
-            ))}
-        </h5>
-      </div>
-    </div>
-  );
+  return <ReposList loading={isLoading} error={errors} items={todos} />;
 }

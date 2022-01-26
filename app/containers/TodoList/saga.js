@@ -6,7 +6,6 @@ import {
 } from './constants';
 import { fetchTodos } from './api';
 
-// Individual exports for testing
 export function* getTodosSaga() {
   try {
     const response = yield call(fetchTodos);
