@@ -1,3 +1,8 @@
+Simplistic to-do application created to learn how to use react boilerplate as well as redux saga and styled components. Backend created with Express using a postgreSQL database to store to-dos. Frontend created with React, Redux, Redux-Saga and Bootstrap.
+
+
+***********************************************************
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
